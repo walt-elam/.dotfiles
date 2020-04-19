@@ -2,3 +2,7 @@
     name = "walt"
     email = "waltdevelops@gmail.com"
 
+[alias]
+    st = status
+    ci = commit
+
