@@ -19,7 +19,7 @@ if [[ ! -d "${DF_SAVE}" ]]; then
 	mkdir "${DF_SAVE}"
 fi
 
-for item in `ls -ad "${DF_DIR}"/.[^.]* | grep -v ".git$"`; do
+for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
     bn=`basename "${item}"`
     # Save original if it already exists
     if [[ -e "${bn}" && -h "${bn}" ]]; then
