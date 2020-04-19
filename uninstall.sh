@@ -17,7 +17,6 @@ cd ~ > /dev/null
 
 for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
     bn=`basename "${item}"`
-    echo "${bn}"
 
     if [[ -f "${bn}" ]]; then
     	unlink "${bn}"
