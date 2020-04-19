@@ -40,9 +40,6 @@
 [push]
     default = simple
 
-[status]
-    short = true
-
 [user]
     name = "walt"
     email = "waltdevelops@gmail.com"
