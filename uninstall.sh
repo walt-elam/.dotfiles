@@ -15,9 +15,14 @@ fi
 
 cd ~ > /dev/null
 
-for item in `ls -ad "${DF_DIR}"/.[^.]* | grep -v ".git$"`; do
+for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
     bn=`basename "${item}"`
-    unlink "${bn}"
+    echo "${bn}"
+
+    if [[ -f "${bn}" ]]; then
+    	unlink "${bn}"
+    fi
+
     # Restore original if it exists
     if [[ -f "${DF_SAVE}/${bn}" ]]; then
         mv "${DF_SAVE}/${bn}" .
