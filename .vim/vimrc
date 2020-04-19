@@ -36,7 +36,7 @@ if &t_Co > 2 || has("gui_running")
   " Highlight strings and numbers inside C comments
   let c_comment_strings=1
   " Highlight trailing space and spaces before a <Tab>
-  let c_space_errors
+  let c_space_errors=1
 endif
 
 " Only do this part when compiled with support for autocommands.
