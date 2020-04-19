@@ -23,7 +23,7 @@ for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
     bn=`basename "${item}"`
 
     # Save original if it already exists
-    if [[ -e "${bn}" && -h "${bn}" ]]; then
+    if [[ -f "${bn}" ]]; then
         mv -f "${bn}" "${DF_SAVE}/"
     fi
 
