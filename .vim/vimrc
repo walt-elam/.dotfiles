@@ -1,0 +1,64 @@
+" vimrc
+"
+" To be placed in (recommended location first):
+"	Unix:		$HOME/.vim/vimrc
+"			$HOME/.vimrc
+"	Windows:	$HOME/vimfiles/vimrc
+"			$HOME/_vimrc
+"			$VIM/_vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set backspace=indent,eol,start	" Allow backspacing over everything
+
+set history=200		" keep 200 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set wildmenu		" display completion matches in a status line
+
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+
+set display=truncate,uhex	" show @@@ in last line if truncated, and hex
+				" code for nonprintable character
+
+set scrolloff=3		" show context around cursor
+
+if has('reltime')
+  set incsearch		" Incremental searching
+endif
+
+" Use Q to quit just like q
+map Q q
+
+if &t_Co > 2 || has("gui_running")
+  syntax on		" Enable syntax highlighting
+
+  " Highlight strings and numbers inside C comments
+  let c_comment_strings=1
+  " Highlight trailing space and spaces before a <Tab>
+  let c_space_errors
+endif
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  filetype plugin indent on	" Enable filetype detection
+
+  " Put these in an autocmd group, so that you can revert them with:
+  " ":augroup vimrc | au! | augroup END"
+  augroup vimrc
+    au!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid, when inside an event handler
+    " (happens when dropping a file on gvim) and for a commit message (it's
+    " likely a different one than last time).
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+  augroup END
+
+endif " has("autocmd")
+
