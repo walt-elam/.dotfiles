@@ -1,0 +1,47 @@
+# Linux
+*~
+.fuse_hidden*
+.nfs*
+.Trash-*
+
+# Mac
+._*
+.apdisk
+.AppleDB
+.AppleDesktop
+.AppleDouble
+.com.apple.timemachine.donotpresent
+.DocumentRevisions-V100
+.DS_STORE
+.fseventsd
+Icon[]
+.LSOverride
+Network Trash Folder
+.Spotlight-V100
+.TemporaryItems
+Temporary Items
+.Trashes
+.VolumeIcon.icns
+
+# Windows
+[Dd]esktop.ini
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+$RECYCLE.BIN/
+*.stackdump
+Thumbs.db
+Thumbs.db:encryptable
+
+# Vim
+.netrwhist
+[._]s[a-rt-v][a-z]
+[._]*.s[a-v][a-z]
+Session.vim
+Sessionx.vim
+[._]ss[a-gi-z]
+[._]*.sw[a-p]
+[._]sw[a-p]
+tags
+[._]*.un~
+

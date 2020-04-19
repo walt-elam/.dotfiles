@@ -1,8 +1,49 @@
+[alias]
+    au = add -v -u
+    ci = commit
+    st = status
+    unstage = reset HEAD
+
+[checkout]
+    defaultRemote = origin
+
+[color]
+    ui = auto
+
+[column]
+    ui = auto
+
+[commit]
+    template = ~/.gitcommit_template
+
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+    editor = vim
+    pager = less
+    whitespace = blank-at-eol,space-before-tab,tabwidth=4
+
+[diff]
+    algorithm = minimal
+    wsErrorHighlight = new
+
+[fetch]
+    parallel = 0
+
+[gui]
+    commitMsgWidth = 80
+    diffContext = 3
+
+[help]
+    autocorrect = true
+
+[push]
+    default = simple
+
+[status]
+    short = true
+
 [user]
     name = "walt"
     email = "waltdevelops@gmail.com"
-
-[alias]
-    st = status
-    ci = commit
 
