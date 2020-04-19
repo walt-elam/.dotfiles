@@ -8,6 +8,21 @@
 "			$VIM/_vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+inoremap jk <ESC>
+colorscheme torte
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set autoindent
+set smartindent
+set number
+set ruler
+nnoremap j gj
+nnoremap k gk
+set textwidth=80
+set colorcolumn=+1
+
 set backspace=indent,eol,start	" Allow backspacing over everything
 
 set history=200		" keep 200 lines of command line history
