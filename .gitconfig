@@ -34,9 +34,6 @@
     commitMsgWidth = 80
     diffContext = 3
 
-[help]
-    autocorrect = true
-
 [push]
     default = simple
 
