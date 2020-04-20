@@ -47,6 +47,8 @@ export HISTSIZE=${HISTFILESIZE}
 export HISTTIMEFORMAT="%F %T: "
 unset MAILCHECK
 
+# Set Builtin Options
+#####################
 set -o braceexpand
 set -o hashall
 set -o histexpand
@@ -56,6 +58,8 @@ set -o monitor
 set -o pipefail
 set -o vi
 
+# Shopt Builtin Options
+#######################
 shopt -s cdspell
 shopt -s checkwinsize
 shopt -s cmdhist
