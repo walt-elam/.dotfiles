@@ -1,8 +1,11 @@
 [alias]
     au = add -v -u
     ci = commit
+    cb = checkout --track -b
+    sl = stash list
     st = status
     unstage = reset HEAD
+    unstash = stash pop
 
 [checkout]
     defaultRemote = origin
