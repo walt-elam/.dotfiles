@@ -74,3 +74,13 @@ shopt -s lithist
 shopt -s no_empty_cmd_completion
 shopt -s progcomp
 
+# Functions
+###########
+# Seed $RANDOM with a high-quality random 2-byte value
+function seed_random()
+{
+    RANDOM=`dd if=/dev/random bs=1 count=2 status=none | xxd | awk '{print $2;}'`
+}
+export -f seed_random
+seed_random
+
