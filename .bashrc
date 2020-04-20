@@ -47,3 +47,11 @@ export HISTSIZE=${HISTFILESIZE}
 export HISTTIMEFORMAT="%F %T: "
 unset MAILCHECK
 
+set -o braceexpand
+set -o hashall
+set -o histexpand
+set -o ignoreeof
+set -o monitor
+set -o pipefail
+set -o vi
+
