@@ -84,3 +84,28 @@ function seed_random()
 export -f seed_random
 seed_random
 
+# Aliases
+#########
+alias c="clear"
+alias cd..="cd .."
+alias ci="vim"
+alias cp="cp -i"
+alias env="env | sort"
+alias grep="grep --color=always -n"
+alias grpe="grep"
+alias la="ls -a"
+alias lla="ls -la"
+alias ll="ls -l"
+alias ls="ls --color=auto"
+alias man="man -S 2:3:4:9:1:8:5:7:6"
+alias mv="mv -i"
+alias pd="printf '%d\n'"
+alias px="printf '0x%x\n'"
+alias rm="rm -i"
+alias src=". ~/.bashrc && echo Loaded .bashrc"
+alias vibash="vim ~/.bashrc"
+alias vi="vim"
+alias vivim="vim ~/.vim/vimrc"
+alias vs="vim -O2"
+alias xdd="xxd"
+
