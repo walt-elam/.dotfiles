@@ -56,3 +56,17 @@ set -o monitor
 set -o pipefail
 set -o vi
 
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s direxpand
+shopt -s dirspell
+shopt -s expand_aliases
+shopt -s globasciiranges
+shopt -s globstar
+shopt -s histappend
+shopt -s interactive_comments
+shopt -s lithist
+shopt -s no_empty_cmd_completion
+shopt -s progcomp
+
