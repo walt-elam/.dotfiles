@@ -4,6 +4,8 @@
 #   Bourne again shell settings
 ################################################################################
 
+umask 0027
+
 # Bourne Shell Variables
 ########################
 export CDPATH="."
