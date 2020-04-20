@@ -50,6 +50,7 @@ unset MAILCHECK
 set -o braceexpand
 set -o hashall
 set -o histexpand
+set -o history
 set -o ignoreeof
 set -o monitor
 set -o pipefail
