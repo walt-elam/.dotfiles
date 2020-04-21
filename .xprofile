@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+#   xprofile
+#
+#   Run by LightDM to initialize X client
+################################################################################
+
+# Run xsessionrc if found
+if [[ -f ~/.xsessionrc ]]; then
+    . ~/.xsessionrc
+fi
+

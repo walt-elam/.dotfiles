@@ -1,0 +1,11 @@
+!
+!   Xresources
+!
+!   X client application settings
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! xterm
+!!!!!!!
+XTerm.termName: xterm-256color
+XTerm.title: console
+

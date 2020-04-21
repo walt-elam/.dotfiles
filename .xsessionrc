@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+#   xsessionrc
+#
+#   X session settings
+################################################################################
+
+# Load X resources if found
+if [[ -f ~/.Xresources ]]; then
+    xrdb ~/.Xresources
+fi
+
