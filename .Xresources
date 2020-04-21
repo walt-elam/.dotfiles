@@ -6,6 +6,11 @@
 
 ! xterm
 !!!!!!!
+
+! Application Resources
+XTerm.keyboardType: sunKeyboard
+XTerm.maxBufSize: 65536
+XTerm.minBufSize: 1024
 XTerm.termName: xterm-256color
 XTerm.title: console
 
