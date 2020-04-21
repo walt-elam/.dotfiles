@@ -110,6 +110,6 @@ alias vs="vim -O2"
 alias xdd="xxd"
 
 # Dotfile variables
-DF_DIR=~/.dotfiles
-DF_SAVE="${DF_DIR}/saved"
+export DF_DIR=~/.dotfiles
+export DF_SAVE="${DF_DIR}/saved"
 
