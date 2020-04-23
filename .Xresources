@@ -53,9 +53,12 @@ XTerm.vt100.on4Clicks: page
 XTerm.vt100.on5Clicks: none
 XTerm.vt100.rightScrollBar: true
 XTerm.vt100.scrollBar: true
-XTerm.vt100.scrollBarBorder: 0
+XTerm.vt100.scrollBarBorder: 2
 XTerm.vt100.scrollKey: true
 XTerm.vt100.trimSelection: true
 XTerm.vt100.utf8: true
 XTerm.vt100.utf8Title: true
+
+! Scrollbar Resources
+XTerm*Scrollbar.Thickness: 12
 
