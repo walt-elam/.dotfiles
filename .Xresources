@@ -62,3 +62,6 @@ XTerm.vt100.utf8Title: true
 ! Scrollbar Resources
 XTerm*Scrollbar.Thickness: 12
 
+! Other Resources
+xterm*font: *-fixed-*-*-*-18-*
+
