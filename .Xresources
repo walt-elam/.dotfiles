@@ -44,9 +44,8 @@ XTerm.vt100.cutNewline: false
 XTerm.vt100.cutToBeginningOfLine: false
 XTerm.vt100.defaultString: .
 XTerm.vt100.dynamicColors: true
-XTerm.vt100.faceName: Source Code Variable
-XTerm.vt100.faceSize: 12
-XTerm.vt100.font: fixed
+XTerm.vt100.faceName: Source Code Pro:antialias=true
+XTerm.vt100.faceSize: 24
 XTerm.vt100.foreground: XtDefaultForeground
 XTerm.vt100.internalBorder: 0
 XTerm.vt100.on2Clicks: word
@@ -63,7 +62,4 @@ XTerm.vt100.utf8Title: true
 
 ! Scrollbar Resources
 XTerm*Scrollbar.Thickness: 12
-
-! Other Resources
-xterm*font: *-fixed-*-*-*-18-*
 
