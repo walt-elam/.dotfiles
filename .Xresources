@@ -37,7 +37,6 @@ XTerm.vt100.color13: magenta
 XTerm.vt100.color14: cyan
 XTerm.vt100.color15: white
 XTerm.vt100.cursorBlink: true
-Xterm.vt100.cursorColor: orange3
 XTerm.vt100.cursorOnTime: 500
 XTerm.vt100.cursorOffTime: 500
 XTerm.vt100.cutNewline: false
@@ -61,5 +60,5 @@ XTerm.vt100.utf8: true
 XTerm.vt100.utf8Title: true
 
 ! Scrollbar Resources
-XTerm*Scrollbar.Thickness: 12
+XTerm*Scrollbar.Thickness: 24
 
