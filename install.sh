@@ -31,3 +31,7 @@ for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
 done
 
 cd - > /dev/null
+
+# Update font cache
+fc-cache
+
