@@ -43,7 +43,7 @@ XTerm.vt100.cutNewline: false
 XTerm.vt100.cutToBeginningOfLine: false
 XTerm.vt100.defaultString: .
 XTerm.vt100.dynamicColors: true
-XTerm.vt100.faceName: Source Code Pro:antialias=true
+XTerm.vt100.faceName: Source Code Pro
 XTerm.vt100.faceSize: 24
 XTerm.vt100.foreground: XtDefaultForeground
 XTerm.vt100.internalBorder: 0
