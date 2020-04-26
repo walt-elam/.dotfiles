@@ -4,7 +4,7 @@
 # i3 config file (v4)
 
 # Modifier key
-set $mod Mod4
+set $mod Mod1
 
 # Pull font from Xresources
 set_from_resource $font XTerm.vt100.faceName DejaVu Sans Mono

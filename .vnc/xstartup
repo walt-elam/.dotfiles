@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+#   xstartup
+#
+#   Initialize X environment for VNC connections
+################################################################################
+
+[ -f ~/.xprofile ] && . ~/.xprofile
+
+i3 &
+

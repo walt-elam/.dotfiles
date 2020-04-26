@@ -4,10 +4,6 @@
 !   X client application settings
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! Xft
-!!!!!
-Xft.dpi: 192
-
 ! xterm
 !!!!!!!
 
@@ -64,5 +60,5 @@ XTerm.vt100.utf8: true
 XTerm.vt100.utf8Title: true
 
 ! Scrollbar Resources
-XTerm*Scrollbar.Thickness: 24
+XTerm*Scrollbar.Thickness: 12
 

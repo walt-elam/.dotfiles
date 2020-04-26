@@ -106,6 +106,7 @@ alias src=". ~/.bashrc && echo Loaded .bashrc"
 alias vibash="vim ~/.bashrc"
 alias vi="vim"
 alias vivim="vim ~/.vim/vimrc"
+alias vncstart="vncserver -geometry 1920x1080 -depth=24 -localhost yes"
 alias vs="vim -O2"
 alias xdd="xxd"
 
