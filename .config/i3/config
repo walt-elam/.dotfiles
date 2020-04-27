@@ -25,6 +25,9 @@ font pango:$font $font_size
 # Launch terminal
 bindsym $mod+Return exec xterm
 
+# Close current window
+bindsymb $mod+w exec close
+
 # Change focus shortcuts
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
