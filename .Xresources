@@ -7,6 +7,9 @@
 ! xterm
 !!!!!!!
 
+xterm*background: black
+xterm*foreground: green3
+
 ! Application Resources
 XTerm.maxBufSize: 65536
 XTerm.minBufSize: 1024
