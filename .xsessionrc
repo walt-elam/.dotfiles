@@ -11,5 +11,5 @@ if [[ -f ~/.Xresources ]]; then
 fi
 
 # Set wallpaper
-feh --bg-center ~/.wallpapers/bell-labs-wallpaper-4k.png
+feh --no-fehbg --bg-fill ~/.wallpapers/bell-labs-wallpaper-4k.png
 
