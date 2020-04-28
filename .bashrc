@@ -18,10 +18,16 @@ export PATH=\
 /usr/sbin:\
 /sbin
 
+# Include private .local/bin if found (Python)
+if [ -d "${HOME}/.local/bin" ]; then
+    export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 # Include private bin if found
 if [ -d "${HOME}/.bin" ]; then
     export PATH="${HOME}/.bin:${PATH}"
 fi
+
 
 export PS1="[\A|\W]"
 if [ 0 == "${UID}" ]; then
@@ -120,7 +126,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Enable git completion
-[ -f ~/.config/git/git-completion.bash ] && ~/.config/git/git-completion.bash
+[ -f ~/.config/git/git-completion.bash ] && . ~/.config/git/git-completion.bash
 
 # FZF
 [ -f ~/.config/fzf/fzf.bash ] && . ~/.config/fzf/fzf.bash
