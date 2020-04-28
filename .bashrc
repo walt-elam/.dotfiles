@@ -129,5 +129,5 @@ fi
 [ -f ~/.config/git/git-completion.bash ] && . ~/.config/git/git-completion.bash
 
 # FZF
-[ -f ~/.config/fzf/fzf.bash ] && . ~/.config/fzf/fzf.bash
+[[ $(command -v fzf) && -f ~/.config/fzf/fzf.bash ]] && . ~/.config/fzf/fzf.bash
 
