@@ -17,11 +17,11 @@
     ui = auto
 
 [commit]
-    template = ~/.gitcommit_template
+    template = ~/.config/git/gitcommit_template
 
 [core]
     autocrlf = input
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.config/git/gitignore_global
     editor = vim
     pager = less
     whitespace = blank-at-eol,space-before-tab,tabwidth=4

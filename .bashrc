@@ -119,6 +119,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Enable git completion
+[ -f ~/.config/git/git-completion.bash ] && ~/.config/git/git-completion.bash
+
 # FZF
 [ -f ~/.config/fzf/fzf.bash ] && . ~/.config/fzf/fzf.bash
 
