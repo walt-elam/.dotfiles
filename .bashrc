@@ -114,6 +114,11 @@ alias xdd="xxd"
 export DF_DIR=~/.dotfiles
 export DF_SAVE="${DF_DIR}/saved"
 
+# Enable bash completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 # FZF
 [ -f ~/.config/fzf/fzf.bash ] && . ~/.config/fzf/fzf.bash
 
