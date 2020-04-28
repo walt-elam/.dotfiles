@@ -114,3 +114,6 @@ alias xdd="xxd"
 export DF_DIR=~/.dotfiles
 export DF_SAVE="${DF_DIR}/saved"
 
+# FZF
+[ -f ~/.config/fzf/fzf.bash ] && . ~/.config/fzf/fzf.bash
+
