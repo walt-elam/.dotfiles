@@ -16,6 +16,9 @@ set $down j
 set $up k
 set $right l
 
+# Make windows floating by default
+for_window [class=".*"] floating enable
+
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
@@ -40,10 +43,9 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Change focus to next/previous sibling
-bindsym $mod+n focus next
-bindsym $mod+Shift+n focus prev
-bindsym $mod+p focus prev
+# Change focus to next/previous window just like Alt+Tab
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 
 # Move focused window
 bindsym $mod+Shift+$left move left
@@ -77,9 +79,6 @@ bindsym $mod+Shift+1 move container to workspace 1; workspace 1
 bindsym $mod+Shift+2 move container to workspace 2; workspace 2
 bindsym $mod+Shift+3 move container to workspace 3: workspace 3
 bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-
-# Align window titles to the left
-for_window [class=".*"] title_align left
 
 # Enter resize window mode
 bindsym $mod+r mode "resize"
