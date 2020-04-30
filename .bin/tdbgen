@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Generating tag database"
+
+bl_dirs=""
+wl_exts="c h cpp hpp py asm S s"
+
+if [[ -z "${wl_exts}" ]]; then
+    echo "No extensions specified, define \$wl_exts to continue"
+    exit
+fi
+
