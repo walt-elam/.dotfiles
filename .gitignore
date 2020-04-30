@@ -2,3 +2,5 @@ saved/
 .vnc/*.pid
 .vnc/*.log
 .vnc/passwd
+.config/pulse
+.fonts/.uuid
