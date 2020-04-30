@@ -3,8 +3,18 @@
 bl_dirs=""
 wl_exts="c h cpp hpp py asm S s"
 
-# Candidate files
-cand_files="GFILES"
+# Candidate files file
+cand_file="GFILES"
+
+function build_prune_str()
+{
+    echo -n ""
+}
+
+function build_include_str()
+{
+    echo -n ""
+}
 
 function generate_tags()
 {
@@ -13,20 +23,25 @@ function generate_tags()
         exit
     fi
 
+    prune_str=`build_prune_str "${bl_dirs}" "${bl_exts}"`
+    include_str=`build_include_str "${wl_dirs}" "${wl_exts}"`
+
     echo "Generating tag database"
+    options="--color=never --files"
+    rg ${prune_str} ${include_str} ${options} > ${1}
 }
 
 case "${1}" in
     clean)
         echo "Cleaning tag database files"
-        rm -f GTAGS GRTAGS GPATH ${cand_files}
+        rm -f GTAGS GRTAGS GPATH ${cand_file}
         ;;
 
     *)
         if [[ "${1}" ]]; then
-            cand_files="${1}"
+            cand_file="${1}"
         fi
-        generate_tags ${cand_files}
+        generate_tags ${cand_file}
         ;;
 esac
 
