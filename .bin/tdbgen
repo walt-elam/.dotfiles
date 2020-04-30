@@ -1,12 +1,32 @@
 #!/bin/bash
 
-echo "Generating tag database"
-
 bl_dirs=""
 wl_exts="c h cpp hpp py asm S s"
 
-if [[ -z "${wl_exts}" ]]; then
-    echo "No extensions specified, define \$wl_exts to continue"
-    exit
-fi
+# Candidate files
+cand_files="GFILES"
+
+function generate_tags()
+{
+    if [[ -z "${wl_exts}" ]]; then
+        echo "No extensions specified, define \$wl_exts to continue"
+        exit
+    fi
+
+    echo "Generating tag database"
+}
+
+case "${1}" in
+    clean)
+        echo "Cleaning tag database files"
+        rm -f GTAGS GRTAGS GPATH ${cand_files}
+        ;;
+
+    *)
+        if [[ "${1}" ]]; then
+            cand_files="${1}"
+        fi
+        generate_tags ${cand_files}
+        ;;
+esac
 
