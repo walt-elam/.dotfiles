@@ -18,12 +18,14 @@ cd ~ > /dev/null
 for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
     bn=`basename "${item}"`
 
-    if [[ -h "${bn}" ]]; then
-    	unlink "${bn}"
+    # Unlink managed files
+    if [[ -h "${bn}" && `readlink -f "${bn}"` =~ "${DF_DIR}/${bn}" ]]; then
+        unlink "${bn}"
     fi
 
-    # Restore original if it exists
-    if [[ -f "${DF_SAVE}/${bn}" ]]; then
+    # Restore original file if it exists
+    if [[ -e "${DF_SAVE}/${bn}" ]]; then
+    echo "Restoring ${bn}"
         mv "${DF_SAVE}/${bn}" .
     fi
 done

@@ -16,18 +16,29 @@ fi
 cd ~ > /dev/null
 
 if [[ ! -d "${DF_SAVE}" ]]; then
-	mkdir "${DF_SAVE}"
+    mkdir "${DF_SAVE}"
 fi
 
 for item in `ls -Ad "${DF_DIR}"/.[^.]* | grep -v ".git\(ignore\)\?$"`; do
     bn=`basename "${item}"`
 
-    # Save original if it already exists
-    if [[ ! -h "${bn}" ]]; then
-        mv -f "${bn}" "${DF_SAVE}/"
-        ln -s "${DF_DIR}/${bn}" "${bn}"
+    # Skip links
+    if [[ -h "${bn}" ]]; then
+        # Notify for unmanaged links
+        if ! [[ `readlink -f "${bn}"` =~ "${DF_DIR}" ]]; then
+            echo "Skipping link: ~/${bn}"
+        fi
+
+        continue
     fi
 
+    # Save normal files
+    if [[ -e "${bn}" ]]; then
+        echo "Saving ${bn}"
+        mv "${bn}" "${DF_SAVE}/"
+    fi
+
+    ln -s "${DF_DIR}/${bn}" "${bn}"
 done
 
 cd - > /dev/null
