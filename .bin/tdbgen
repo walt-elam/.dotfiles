@@ -22,32 +22,6 @@ if [[ -z "${wl_exts}" ]]; then
     wl_exts=${def_exts}
 fi
 
-function build_prune_str()
-{
-    prune_str=""
-
-    if [[ "${1}" ]]; then
-        for d in ${1}; do
-            prune_str="${prune_str} -g '!*${d}/*'"
-        done
-    fi
-
-    echo -n "${prune_str}"
-}
-
-function build_include_str()
-{
-    include_str=""
-
-    if [[ "${1}" ]]; then
-        for e in ${1}; do
-            include_str="${include_str} -g '*.${e}'"
-        done
-    fi
-
-    echo -n "${include_str}"
-}
-
 function generate_tags()
 {
     prune_str=`build_prune_str "${bl_dirs}"`

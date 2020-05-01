@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# build_prune_str
+#
+# Builds a string to prune directories from a search
+################################################################################
+prune_str=""
+
+if [[ "${1}" ]]; then
+    for d in ${1}; do
+        prune_str="${prune_str} -g '!*${d}/*'"
+    done
+fi
+
+echo -n "${prune_str}"
+

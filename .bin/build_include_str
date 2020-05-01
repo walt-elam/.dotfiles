@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# build_include_str
+#
+# Builds a string to include specific file extensions in a search
+################################################################################
+include_str=""
+
+if [[ "${1}" ]]; then
+    for e in ${1}; do
+        include_str="${include_str} -g '*.${e}'"
+    done
+fi
+
+echo -n "${include_str}"
+
