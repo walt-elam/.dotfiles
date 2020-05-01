@@ -1,34 +1,65 @@
 #!/bin/bash
+#
+# tdbgen
+#
+# Tag DataBase GENeration script
+#
+# The only argument accepted is the path to file receiving the list of files
+# being tagged.
+#
+# Any directory in bl_dirs will have its contents ignored, and only files with
+# the extensions in wl_exts will be indexed.
+################################################################################
 
-bl_dirs=""
-wl_exts="c h cpp hpp py asm S s"
+def_dirs=".git"
+def_exts="c h cpp hpp py asm S s"
+
+if [[ -z "${bl_dirs}" ]]; then
+    bl_dirs=${def_dirs}
+fi
+
+if [[ -z "${wl_exts}" ]]; then
+    wl_exts=${def_exts}
+fi
 
 # Candidate files file
 cand_file="GFILES"
 
 function build_prune_str()
 {
-    echo -n ""
+    prune_str=""
+
+    if [[ "${1}" ]]; then
+        for d in ${1}; do
+            prune_str="${prune_str} -g '!*${d}/*'"
+        done
+    fi
+
+    echo -n "${prune_str}"
 }
 
 function build_include_str()
 {
-    echo -n ""
+    include_str=""
+
+    if [[ "${1}" ]]; then
+        for e in ${1}; do
+            include_str="${include_str} -g '*.${e}'"
+        done
+    fi
+
+    echo -n "${include_str}"
 }
 
 function generate_tags()
 {
-    if [[ -z "${wl_exts}" ]]; then
-        echo "No extensions specified, define \$wl_exts to continue"
-        exit
-    fi
+    prune_str=`build_prune_str "${bl_dirs}"`
+    include_str=`build_include_str "${wl_exts}"`
 
-    prune_str=`build_prune_str "${bl_dirs}" "${bl_exts}"`
-    include_str=`build_include_str "${wl_dirs}" "${wl_exts}"`
-
-    echo "Generating tag database"
-    options="--color=never --files"
-    rg ${prune_str} ${include_str} ${options} > ${1}
+    options="--case-sensitive --color=never --follow --hidden --no-config"
+    options="${options} --no-ignore --no-ignore-global --sort path --trim"
+    eval "rg ${include_str} ${prune_str} ${options} --files > ${1}"
+    echo "Candidate file list written to: ${1}"
 }
 
 case "${1}" in
