@@ -4,8 +4,8 @@
 #
 # Tag DataBase GENeration script
 #
-# The only argument accepted is the path to file receiving the list of files
-# being tagged.
+# If the argument provided is "clean" then tag files are removed. All other
+# arguments are ignored.
 #
 # Any directory in bl_dirs will have its contents ignored, and only files with
 # the extensions in wl_exts will be indexed.
@@ -21,9 +21,6 @@ fi
 if [[ -z "${wl_exts}" ]]; then
     wl_exts=${def_exts}
 fi
-
-# Candidate files file
-cand_file="GFILES"
 
 function build_prune_str()
 {
@@ -58,21 +55,20 @@ function generate_tags()
 
     options="--case-sensitive --color=never --follow --hidden --no-config"
     options="${options} --no-ignore --no-ignore-global --sort path --trim"
-    eval "rg ${include_str} ${prune_str} ${options} --files > ${1}"
-    echo "Candidate file list written to: ${1}"
+    cand_files=`mktemp`
+    eval "rg ${include_str} ${prune_str} ${options} --files > ${cand_files}"
+    gtags -f ${cand_files}
+    rm -f "${cand_files}"
 }
 
 case "${1}" in
     clean)
         echo "Cleaning tag database files"
-        rm -f GTAGS GRTAGS GPATH ${cand_file}
+        rm -f GTAGS GRTAGS GPATH
         ;;
 
     *)
-        if [[ "${1}" ]]; then
-            cand_file="${1}"
-        fi
-        generate_tags ${cand_file}
+        generate_tags
         ;;
 esac
 
