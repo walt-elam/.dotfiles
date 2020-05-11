@@ -10,6 +10,3 @@ if [[ -f ~/.Xresources ]]; then
     xrdb ~/.Xresources
 fi
 
-# Set wallpaper
-feh --no-fehbg --bg-fill ~/.wallpapers/bell-labs-wallpaper-4k.png
-
