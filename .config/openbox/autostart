@@ -1,0 +1,12 @@
+#
+# autostart
+#
+# Programs to launch after Openbox has started
+################################################################################
+
+# Set wallpaper
+feh --no-fehbg --bg-fill ~/.wallpapers/bell-labs-wallpaper-4k.png &
+
+# Start panel
+tint2 &
+
