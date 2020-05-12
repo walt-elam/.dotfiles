@@ -16,7 +16,7 @@
     </item>
     <item label="Web Browser">
         <action name="Execute">
-            <execute>/etc/alternatives/www-browser</execute>
+            <execute>/etc/alternatives/x-www-browser</execute>
         </action>
     </item>
 
