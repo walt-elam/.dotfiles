@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# ws_btn_fmt
+#
+# Formats a workspace button for tint2. The format for the currently active
+# workspace is formatted slightly differently.
+################################################################################
+id=${1}
+act=`wmctrl -d | \grep '\*' | cut -c1`
+act=$((cur + 1))
+
+# Add special formatting for active workspace
+if [[ "${id}" == "${act}" ]]; then
+    ul="underline=\"double\""
+fi
+
+echo "<span ${ul} foreground=\"#BFC0BB\" background=\"#2D343E\">${id}</span>"
+
