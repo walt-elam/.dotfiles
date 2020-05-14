@@ -1,0 +1,17 @@
+/*
+ * Maximize icon (toggled)
+ */
+#define max_toggled_width   8
+#define max_toggled_height  8
+
+static unsigned char max_toggled_bits[] = {
+    0x00,
+    0x00,
+    0x00,
+    0x1F,
+    0x1F,
+    0x11,
+    0x11
+    0x1F,
+};
+

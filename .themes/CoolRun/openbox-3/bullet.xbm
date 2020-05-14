@@ -1,0 +1,17 @@
+/*
+ * Bullet icon
+ */
+#define bullet_width    8
+#define bullet_height   8
+
+static unsigned char bullet_bits[] = {
+    0x1C,
+    0x38,
+    0x70,
+    0xE0,
+    0xE0,
+    0x70,
+    0x38,
+    0x1C,
+};
+
