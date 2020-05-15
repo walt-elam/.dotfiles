@@ -69,5 +69,11 @@ XTerm.vt100.utf8Title: true
 XTerm*Scrollbar.Thickness: 14
 XTerm*Scrollbar.Foreground: #ED4F26
 XTerm*Scrollbar.Background: #2D353E
+*VT100.scrollbar.translations: #override                                \n\
+    <Btn5Down>:     StartScroll(Forward)                                \n\
+    <Btn1Down>:     StartScroll(Continuous) MoveThumb() NotifyThumb()   \n\
+    <Btn4Down>:     StartScroll(Backward)                               \n\
+    <Btn1Motion>:   MoveThumb() NotifyThumb()                           \n\
+    <BtnUp>:        NotifyScroll(Proportional) EndScroll()
 
 
