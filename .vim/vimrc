@@ -75,6 +75,9 @@ if has("autocmd")
       \ |   exe "normal! g`\""
       \ | endif
 
+    " Change tabstop to 2 for HTML/XML
+    autocmd FileType html,xml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
   augroup END
 
 endif " has("autocmd")
