@@ -25,45 +25,45 @@
 *color15:       #FFFFFB
 
 ! Application Resources
-XTerm.maxBufSize: 65536
-XTerm.minBufSize: 1024
-XTerm.termName: xterm-256color
-XTerm.title: console
+XTerm.maxBufSize:   65536
+XTerm.minBufSize:   1024
+XTerm.termName:     xterm-256color
+XTerm.title:        console
 
 ! VT100 Widget Resources
-XTerm.vt100.allowBoldFonts: true
-XTerm.vt100.allowFontOps: true
-XTerm.vt100.allowScrollLock: true
-XTerm.vt100.allowBoldMode: true
-XTerm.vt100.ctlXtraScroll: true
-XTerm.vt100.cursorBlink: true
-XTerm.vt100.cursorOnTime: 500
-XTerm.vt100.cursorOffTime: 500
-XTerm.vt100.cutNewline: false
-XTerm.vt100.cutToBeginningOfLine: false
-XTerm.vt100.defaultString: .
-XTerm.vt100.dynamicColors: true
-XTerm.vt100.faceName: Source Code Pro
-XTerm.vt100.faceSize: 12
-XTerm.vt100.internalBorder: 0
-XTerm.vt100.on2Clicks: word
-XTerm.vt100.on3Clicks: line
-XTerm.vt100.on4Clicks: page
-XTerm.vt100.on5Clicks: none
-XTerm.vt100.rightScrollBar: true
-XTerm.vt100.saveLines: 16384
-XTerm.vt100.scrollBar: true
-XTerm.vt100.scrollBarBorder: 0
-XTerm.vt100.scrollKey: true
-XTerm.vt100.trimSelection: true
-XTerm.vt100.utf8: true
-XTerm.vt100.utf8Title: true
+XTerm.vt100.allowBoldFonts:         true
+XTerm.vt100.allowFontOps:           true
+XTerm.vt100.allowScrollLock:        true
+XTerm.vt100.allowBoldMode:          true
+XTerm.vt100.ctlXtraScroll:          true
+XTerm.vt100.cursorBlink:            true
+XTerm.vt100.cursorOnTime:           500
+XTerm.vt100.cursorOffTime:          500
+XTerm.vt100.cutNewline:             false
+XTerm.vt100.cutToBeginningOfLine:   false
+XTerm.vt100.defaultString:          .
+XTerm.vt100.dynamicColors:          true
+XTerm.vt100.faceName:               Source  Code  Pro
+XTerm.vt100.faceSize:               12
+XTerm.vt100.internalBorder:         0
+XTerm.vt100.on2Clicks:              word
+XTerm.vt100.on3Clicks:              line
+XTerm.vt100.on4Clicks:              page
+XTerm.vt100.on5Clicks:              none
+XTerm.vt100.rightScrollBar:         true
+XTerm.vt100.saveLines:              16384
+XTerm.vt100.scrollBar:              true
+XTerm.vt100.scrollBarBorder:        0
+XTerm.vt100.scrollKey:              true
+XTerm.vt100.trimSelection:          true
+XTerm.vt100.utf8:                   true
+XTerm.vt100.utf8Title:              true
 
 ! Scrollbar Resources
-XTerm.vt100.scrollbar.translations: #override                                \n\
-    <Btn5Down>:     StartScroll(Forward)                                \n\
-    <Btn1Down>:     StartScroll(Continuous) MoveThumb() NotifyThumb()   \n\
-    <Btn4Down>:     StartScroll(Backward)                               \n\
-    <Btn1Motion>:   MoveThumb() NotifyThumb()                           \n\
+XTerm.vt100.scrollbar.translations: #override                               \n\
+    <Btn5Down>:     StartScroll(Forward)                                    \n\
+    <Btn1Down>:     StartScroll(Continuous) MoveThumb() NotifyThumb()       \n\
+    <Btn4Down>:     StartScroll(Backward)                                   \n\
+    <Btn1Motion>:   MoveThumb() NotifyThumb()                               \n\
     <BtnUp>:        NotifyScroll(Proportional) EndScroll()
 
