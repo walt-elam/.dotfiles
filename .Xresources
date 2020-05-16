@@ -4,13 +4,9 @@
 !   X client application settings
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! xterm
-!!!!!!!
-
-xterm*background: #2D353E
-xterm*foreground: #BFC0BB
-xterm*borderWidth: 0
-xterm*borderColor: #2D353E
+! Default colors
+*background: #2D353E
+*foreground: #BFC0BB
 
 ! Application Resources
 XTerm.maxBufSize: 65536
@@ -23,7 +19,6 @@ XTerm.vt100.allowBoldFonts: true
 XTerm.vt100.allowFontOps: true
 XTerm.vt100.allowScrollLock: true
 XTerm.vt100.allowBoldMode: true
-XTerm.vt100.background: XtDefaultBackground
 XTerm.vt100.ctlXtraScroll: true
 XTerm.vt100.color0: black
 XTerm.vt100.color1: red3
@@ -50,7 +45,6 @@ XTerm.vt100.defaultString: .
 XTerm.vt100.dynamicColors: true
 XTerm.vt100.faceName: Source Code Pro
 XTerm.vt100.faceSize: 12
-XTerm.vt100.foreground: XtDefaultForeground
 XTerm.vt100.internalBorder: 0
 XTerm.vt100.on2Clicks: word
 XTerm.vt100.on3Clicks: line
@@ -66,14 +60,10 @@ XTerm.vt100.utf8: true
 XTerm.vt100.utf8Title: true
 
 ! Scrollbar Resources
-XTerm*Scrollbar.Thickness: 14
-XTerm*Scrollbar.Foreground: #ED4F26
-XTerm*Scrollbar.Background: #2D353E
-*VT100.scrollbar.translations: #override                                \n\
+XTerm.vt100.scrollbar.translations: #override                                \n\
     <Btn5Down>:     StartScroll(Forward)                                \n\
     <Btn1Down>:     StartScroll(Continuous) MoveThumb() NotifyThumb()   \n\
     <Btn4Down>:     StartScroll(Backward)                               \n\
     <Btn1Motion>:   MoveThumb() NotifyThumb()                           \n\
     <BtnUp>:        NotifyScroll(Proportional) EndScroll()
-
 
