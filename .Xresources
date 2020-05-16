@@ -5,8 +5,24 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ! Default colors
-*background: #2D353E
-*foreground: #BFC0BB
+*background:    #2D353E
+*foreground:    #BFC0BB
+*color0:        #2D353E
+*color1:        #ED2F00
+*color2:        #98BF00
+*color3:        #DAE871
+*color4:        #0092E8
+*color5:        #7171E8
+*color6:        #63888E
+*color7:        #BFC0BB
+*color8:        #60615E
+*color9:        #ED4F26
+*color10:       #61ED25
+*color11:       #EDE325
+*color12:       #72BDE8
+*color13:       #D871E8
+*color14:       #25C5ED
+*color15:       #FFFFFB
 
 ! Application Resources
 XTerm.maxBufSize: 65536
@@ -20,22 +36,6 @@ XTerm.vt100.allowFontOps: true
 XTerm.vt100.allowScrollLock: true
 XTerm.vt100.allowBoldMode: true
 XTerm.vt100.ctlXtraScroll: true
-XTerm.vt100.color0: black
-XTerm.vt100.color1: red3
-XTerm.vt100.color2: green3
-XTerm.vt100.color3: yellow3
-XTerm.vt100.color4: dark blue
-XTerm.vt100.color5: magenta3
-XTerm.vt100.color6: cyan3
-XTerm.vt100.color7: gray90
-XTerm.vt100.color8: gray30
-XTerm.vt100.color9: red
-XTerm.vt100.color10: green
-XTerm.vt100.color11: yellow
-XTerm.vt100.color12: light blue
-XTerm.vt100.color13: magenta
-XTerm.vt100.color14: cyan
-XTerm.vt100.color15: white
 XTerm.vt100.cursorBlink: true
 XTerm.vt100.cursorOnTime: 500
 XTerm.vt100.cursorOffTime: 500
