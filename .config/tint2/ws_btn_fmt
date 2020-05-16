@@ -7,7 +7,7 @@
 ################################################################################
 id=${1}
 act=`wmctrl -d | \grep '\*' | cut -c1`
-act=$((cur + 1))
+act=$((act + 1))
 
 # Add special formatting for active workspace
 if [[ "${id}" == "${act}" ]]; then
