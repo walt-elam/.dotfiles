@@ -129,5 +129,8 @@ fi
 [ -f ~/.config/git/git-completion.bash ] && . ~/.config/git/git-completion.bash
 
 # FZF
+fzf_options="--case-sensitive --color=never --follow --hidden --no-config"
+fzf_options="${fzf_options} --no-ignore --no-ignore-global --sort path --trim"
+export FZF_DEFAULT_COMMAND="rg ${fzf_options} --files"
 [[ $(command -v fzf) && -f ~/.config/fzf/fzf.bash ]] && . ~/.config/fzf/fzf.bash
 
