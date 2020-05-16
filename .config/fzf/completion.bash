@@ -365,8 +365,8 @@ _fzf_setup_completion() {
 }
 
 # Environment variables / Aliases / Hosts
-_fzf_setup_completion 'var'   export unset
-_fzf_setup_completion 'alias' unalias
-_fzf_setup_completion 'host'  ssh telnet
+#_fzf_setup_completion 'var'   export unset
+#_fzf_setup_completion 'alias' unalias
+#_fzf_setup_completion 'host'  ssh telnet
 
 fi

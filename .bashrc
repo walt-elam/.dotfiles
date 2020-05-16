@@ -132,5 +132,25 @@ fi
 fzf_options="--case-sensitive --color=never --follow --hidden --no-config"
 fzf_options="${fzf_options} --no-ignore --no-ignore-global --sort path --trim"
 export FZF_DEFAULT_COMMAND="rg ${fzf_options} --files"
+_fzf_compgen_path() {
+    echo "${1}"
+    command rg ${fzf_options} -g '!{.git,.hg,.svn}' --files ${1} 2>/dev/null \
+        | sed 's@^\./@@'
+}
+export _fzf_compgen_path
+
+_fzf_compgen_dir() {
+    command rg ${fzf_options} -g '!{.git,.hg,.svn}' --files ${1} 2>/dev/null \
+        | sed 's@^\./@@'
+}
+export _fzf_compgen_dir
+
 [[ $(command -v fzf) && -f ~/.config/fzf/fzf.bash ]] && . ~/.config/fzf/fzf.bash
+
+_fzf_complete_vi_notrigger() {
+    FZF_COMPLETION_TRIGGER='' _fzf_path_completion
+}
+
+complete -o bashdefault -o default -F _fzf_complete_vi_notrigger vi
+complete -o bashdefault -o default -F _fzf_complete_vi_notrigger vi
 
