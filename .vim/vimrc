@@ -53,6 +53,10 @@ endif
 " Use Q to quit just like q
 map Q q
 
+" GNU Global (GTAGS) settings
+let GtagsCscope_Quiet=1
+set cscopetag
+
 if &t_Co > 2 || has("gui_running")
   syntax on		" Enable syntax highlighting
 
