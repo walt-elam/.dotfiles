@@ -32,6 +32,12 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set wildmenu		" display completion matches in a status line
 
+if has('persistent_undo')
+    set undodir=$HOME/.vim/undo
+    set undolevels=1000
+    set undofile
+endif
+
 set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 
@@ -76,7 +82,9 @@ if has("autocmd")
       \ | endif
 
     " Change tabstop to 2 for HTML/XML
-    autocmd FileType html,xml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    autocmd FileType html*,xml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    " Use width of 79 for python to comply with PEP8
+    autocmd FileType python setlocal textwidth=79
 
   augroup END
 
