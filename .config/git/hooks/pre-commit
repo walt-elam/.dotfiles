@@ -1,30 +1,33 @@
 #!/usr/bin/env python3
+# pylint: disable=invalid-name
 """
 Hooks to run when committing files to git
 """
-import os
 import re
 import shutil
 import subprocess
 import sys
-import tempfile
 
 
-def system(*args, **kwargs):
+def system(cmd):
     """
     Handles running a system command and returning the results
 
     Args:
-        *args:      Command being run
-        **kwargs:   Additional arguments to the command
+        cmd:    Command to be run as a list of strings
 
     Returns:
-        STDOUT from running the given command
+        Tuple containing return code, stdout, and stderr
     """
-    kwargs.setdefault('stdout', subprocess.PIPE)
-    proc = subprocess.Popen(args, **kwargs)
-    output = proc.communicate()
-    return output[0]
+    try:
+        proc = subprocess.run(cmd,
+                              stdout=subprocess.PIPE,
+                              stderr=subprocess.PIPE,
+                              check=True)
+    except subprocess.CalledProcessError as exc:
+        proc = exc
+
+    return (proc.returncode, proc.stdout, proc.stderr)
 
 
 def pep8(files):
@@ -44,25 +47,14 @@ def pep8(files):
 
     modified = re.compile(r'^\s*[AM]+\s+(?P<name>.*\.py$)', re.MULTILINE)
     files = modified.findall(files)
-    tmpdir = tempfile.mkdtemp()
     msg = 'PEP8 style violations have been detected and must be fixed.\n'
     ret = 0
 
     for name in files:
-        filename = os.path.join(tmpdir, name)
-        filepath = os.path.dirname(filename)
-
-        if not os.path.exists(filepath):
-            os.makedirs(filepath)
-
-        with open(filename, 'w') as fd:
-            system('git', 'show', ':' + name, stdout=fd)
-
-        args = ['pycodestyle', '.']
-        output = system(*args, cwd=tmpdir)
-        shutil.rmtree(tmpdir)
-        if output:
-            msg += output.decode('utf-8')
+        cmd = ['pycodestyle', name]
+        ret = system(cmd)
+        if ret[0] != 0:
+            msg += ret[1].decode('utf-8')
             ret = 1
 
     if ret:
@@ -87,25 +79,14 @@ def pylint(files):
 
     modified = re.compile(r'^\s*[AM]+\s+(?P<name>.*\.py$)', re.MULTILINE)
     files = modified.findall(files)
-    tmpdir = tempfile.mkdtemp()
     msg = 'Pylint violations have been detected and must be fixed.\n'
     ret = 0
 
     for name in files:
-        filename = os.path.join(tmpdir, name)
-        filepath = os.path.dirname(filename)
-
-        if not os.path.exists(filepath):
-            os.makedirs(filepath)
-
-        with open(filename, 'w') as fd:
-            system('git', 'show', ':' + name, stdout=fd)
-
-        args = ['pylint', name]
-        output = system(*args, cwd=tmpdir)
-        shutil.rmtree(tmpdir)
-        if output:
-            msg += output.decode('utf-8')
+        cmd = ['pylint', name]
+        ret = system(cmd)
+        if ret[0] != 0:
+            msg += ret[1].decode('utf-8')
             ret = 1
 
     if ret:
@@ -115,7 +96,12 @@ def pylint(files):
 
 
 def main():
-    files = system('git', 'status', '--porcelain').decode('utf-8')
+    """Runs pre-commit checks"""
+    ret = system(['git', 'status', '--porcelain'])
+    if ret[0] != 0:
+        return
+
+    files = ret[1].decode('utf-8')
     failed = 0
 
     failed += pep8(files)
