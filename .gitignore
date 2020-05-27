@@ -4,3 +4,4 @@ saved/
 .vnc/passwd
 .config/pulse
 .fonts/.uuid
+.vim/undo
