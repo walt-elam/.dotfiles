@@ -121,6 +121,9 @@ alias xdd="xxd"
 export DF_DIR=~/.dotfiles
 export DF_SAVE="${DF_DIR}/saved"
 
+# Create vim undo directory if it doesn't exist
+[ ! -d ~/.vim/undo ] && mkdir -p ~/.vim/undo
+
 # Enable bash completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
