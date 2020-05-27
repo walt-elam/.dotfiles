@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+"""
+Hooks to run when committing files to git
+"""
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+
+def system(*args, **kwargs):
+    """
+    Handles running a system command and returning the results
+
+    Args:
+        *args:      Command being run
+        **kwargs:   Additional arguments to the command
+
+    Returns:
+        STDOUT from running the given command
+    """
+    kwargs.setdefault('stdout', subprocess.PIPE)
+    proc = subprocess.Popen(args, **kwargs)
+    output = proc.communicate()
+    return output[0]
+
+
+def pep8(files):
+    """
+    Runs PEP8 style checks via pycodestyle
+
+    Args:
+        files:  List of files being committed
+
+    Returns:
+        1 if checks failed, otherwise 0
+    """
+
+    if not shutil.which('pycodestyle'):
+        print('Failed to find pycodestyle, cannot run PEP8 checks')
+        return 0
+
+    modified = re.compile(r'^\s*[AM]+\s+(?P<name>.*\.py$)', re.MULTILINE)
+    files = modified.findall(files)
+    tmpdir = tempfile.mkdtemp()
+    msg = 'PEP8 style violations have been detected and must be fixed.\n'
+    ret = 0
+
+    for name in files:
+        filename = os.path.join(tmpdir, name)
+        filepath = os.path.dirname(filename)
+
+        if not os.path.exists(filepath):
+            os.makedirs(filepath)
+
+        with open(filename, 'w') as fd:
+            system('git', 'show', ':' + name, stdout=fd)
+
+        args = ['pycodestyle', '.']
+        output = system(*args, cwd=tmpdir)
+        shutil.rmtree(tmpdir)
+        if output:
+            msg += output.decode('utf-8')
+            ret = 1
+
+    if ret:
+        print(msg, end='')
+
+    return ret
+
+
+def pylint(files):
+    """
+    Runs linter checks via pylint
+
+    Args:
+        files:  List of files being committed
+
+    Returns:
+        1 if checks failed, otherwise 0
+    """
+    if not shutil.which('pylint'):
+        print('Failed to find pylint, cannot run lint checks')
+        return 0
+
+    modified = re.compile(r'^\s*[AM]+\s+(?P<name>.*\.py$)', re.MULTILINE)
+    files = modified.findall(files)
+    tmpdir = tempfile.mkdtemp()
+    msg = 'Pylint violations have been detected and must be fixed.\n'
+    ret = 0
+
+    for name in files:
+        filename = os.path.join(tmpdir, name)
+        filepath = os.path.dirname(filename)
+
+        if not os.path.exists(filepath):
+            os.makedirs(filepath)
+
+        with open(filename, 'w') as fd:
+            system('git', 'show', ':' + name, stdout=fd)
+
+        args = ['pylint', name]
+        output = system(*args, cwd=tmpdir)
+        shutil.rmtree(tmpdir)
+        if output:
+            msg += output.decode('utf-8')
+            ret = 1
+
+    if ret:
+        print(msg, end='')
+
+    return ret
+
+
+def main():
+    files = system('git', 'status', '--porcelain').decode('utf-8')
+    failed = 0
+
+    failed += pep8(files)
+    failed += pylint(files)
+
+    if failed:
+        print('These issues can be ignored with "git commit --no-verify"')
+        sys.exit(-1)
+
+    sys.exit(0)
+
+
+if __name__ == '__main__':
+    main()

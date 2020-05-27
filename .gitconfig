@@ -25,6 +25,7 @@
     editor = vim
     pager = less
     whitespace = blank-at-eol,space-before-tab,tabwidth=4
+    hooksPath = ~/.config/git/hooks
 
 [diff]
     algorithm = minimal
