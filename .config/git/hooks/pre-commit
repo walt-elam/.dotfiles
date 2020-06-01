@@ -40,21 +40,21 @@ def pep8(files):
     Returns:
         1 if checks failed, otherwise 0
     """
-
-    if not shutil.which('pycodestyle'):
-        print('Failed to find pycodestyle, cannot run PEP8 checks')
-        return 0
-
+    prog = 'pycodestyle'
     modified = re.compile(r'^\s*[AM]+\s+(?P<name>.*\.py$)', re.MULTILINE)
     files = modified.findall(files)
-    msg = 'PEP8 style violations have been detected and must be fixed.\n'
+    msg = '[!] PEP8 style violations have been detected and must be fixed.\n'
     ret = 0
 
+    if files and not shutil.which(prog):
+        print('[-] Failed to find {}, cannot run PEP8 checks'.format(prog))
+        return 0
+
     for name in files:
-        cmd = ['pycodestyle', name]
-        ret = system(cmd)
-        if ret[0] != 0:
-            msg += ret[1].decode('utf-8')
+        cmd = [prog, name]
+        res = system(cmd)
+        if res[0] != 0:
+            msg += res[1].decode('utf-8')
             ret = 1
 
     if ret:
@@ -73,20 +73,22 @@ def pylint(files):
     Returns:
         1 if checks failed, otherwise 0
     """
-    if not shutil.which('pylint'):
-        print('Failed to find pylint, cannot run lint checks')
-        return 0
-
+    prog = 'pylint'
     modified = re.compile(r'^\s*[AM]+\s+(?P<name>.*\.py$)', re.MULTILINE)
     files = modified.findall(files)
-    msg = 'Pylint violations have been detected and must be fixed.\n'
+    msg = '[!] {} violations have been detected and must be fixed.\n'.format(
+            prog)
     ret = 0
 
+    if files and not shutil.which(prog):
+        print('[-] Failed to find {}, cannot run lint checks'.format(prog))
+        return 0
+
     for name in files:
-        cmd = ['pylint', name]
-        ret = system(cmd)
-        if ret[0] != 0:
-            msg += ret[1].decode('utf-8')
+        cmd = [prog, name]
+        res = system(cmd)
+        if res[0] != 0:
+            msg += res[1].decode('utf-8')
             ret = 1
 
     if ret:
@@ -97,18 +99,18 @@ def pylint(files):
 
 def main():
     """Runs pre-commit checks"""
-    ret = system(['git', 'status', '--porcelain'])
-    if ret[0] != 0:
+    res = system(['git', 'status', '--porcelain'])
+    if res[0] != 0:
         return
 
-    files = ret[1].decode('utf-8')
+    files = res[1].decode('utf-8')
     failed = 0
 
     failed += pep8(files)
     failed += pylint(files)
 
     if failed:
-        print('These issues can be ignored with "git commit --no-verify"')
+        print('[+] These issues can be ignored with "git commit --no-verify"')
         sys.exit(-1)
 
     sys.exit(0)
