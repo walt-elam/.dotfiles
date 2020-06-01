@@ -85,7 +85,9 @@ shopt -s progcomp
 # Seed $RANDOM with a high-quality random 2-byte value
 function seed_random()
 {
+    echo "Generating seed"
     RANDOM=`dd if=/dev/random bs=1 count=2 status=none | xxd | awk '{print $2;}'`
+    echo "Seeded RANDOM"
 }
 export -f seed_random
 seed_random
