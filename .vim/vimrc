@@ -8,6 +8,7 @@
 "			$VIM/_vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set shell=/bin/sh
 inoremap jk <ESC>
 colorscheme torte
 set shiftwidth=4
